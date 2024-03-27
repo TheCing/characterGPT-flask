@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CharacterGPT Game</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <div id="sidebar" class="sidebar">
+      <button id="close-button" class="close-button">X</button>
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="{{ url_for('home') }}">Home</a>
+        </li>
+        <li class="menu-item">
+          <a href="{{ url_for('home') }}">Game</a>
+        </li>
+        <li class="menu-item">
+          <a href="{{ url_for('home') }}">About</a>
+        </li>
+      </ul>
+    </div>
+    <div class="header">
+      <h1 class="title">
+        <span class="arrow-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            fill="#007bff"
+            version="1.1"
+            id="Capa_1"
+            width="20"
+            height="22"
+            viewBox="0 0 199.404 199.404"
+            xml:space="preserve"
+          >
+            <g>
+              <polygon
+                points="135.412,0 35.709,99.702 135.412,199.404 163.695,171.119 92.277,99.702 163.695,28.285  "
+              />
+            </g>
+          </svg>
+        </span>
+        {{ current_char }}
+      </h1>
+    </div>
+    <div class="message-log" id="messageList"></div>
+    <div class="typing-indicator" id="typingIndicator" style="display: none">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <div class="message-input">
+      <input
+        type="text"
+        id="input-field"
+        class="input-field"
+        placeholder="Type a message..."
+      />
+      <button id="send-button" class="send-button">Send</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  </body>
+</html>
