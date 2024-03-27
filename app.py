@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, jsonify, request
 from openai import OpenAI
 from elevenlabs import generate, play, set_api_key
@@ -5,13 +6,20 @@ import speech_recognition as sr
 import yaml
 from datetime import datetime
 from flask_assets import Environment, Bundle
+from dotenv import load_dotenv
+
+# Load the .env file
+load_dotenv()
+
+# Get the API keys
+openai_api_key = os.getenv('OPENAI_API_KEY')
+elevenlabs_api_key = os.getenv('ELEVENLABS_API_KEY')
 
 # OpenAI API key
-client = OpenAI(api_key="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")
+client = OpenAI(api_key=openai_api_key)
 
 # ElevenLabs API key
-elevenlabs_api_key = "ae115be99b6efed5da337213e0a55617"
-set_api_key("ae115be99b6efed5da337213e0a55617")
+set_api_key(elevenlabs_api_key)
 
 app = Flask(__name__)
 
